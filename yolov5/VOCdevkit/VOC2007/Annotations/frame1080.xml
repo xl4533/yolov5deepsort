@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<annotation>
+<folder>videogrey</folder>
+<filename>frame1080.jpg</filename>
+<path>D:\360MoveData\Users\DELL\Desktop\spyder_test\videogrey\frame1080.jpg</path>
+<source>
+    <database>Unknown</database>
+</source>
+<size>
+    <width>960</width>
+    <height>540</height>
+    <depth>3</depth>
+</size>
+
+<segmented>0</segmented>
+    <object>
+    <name>fish</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+        <xmin>136</xmin>
+        <ymin>68</ymin>
+        <xmax>181</xmax>
+        <ymax>108</ymax>
+    </bndbox>
+</object>
+    <object>
+    <name>fish</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+        <xmin>355</xmin>
+        <ymin>97</ymin>
+        <xmax>411</xmax>
+        <ymax>125</ymax>
+    </bndbox>
+</object>
+    <object>
+    <name>fish</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+        <xmin>456</xmin>
+        <ymin>398</ymin>
+        <xmax>504</xmax>
+        <ymax>433</ymax>
+    </bndbox>
+</object>
+    <object>
+    <name>fish</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+        <xmin>85</xmin>
+        <ymin>108</ymin>
+        <xmax>132</xmax>
+        <ymax>140</ymax>
+    </bndbox>
+</object>
+    <object>
+    <name>fish</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+        <xmin>68</xmin>
+        <ymin>168</ymin>
+        <xmax>120</xmax>
+        <ymax>215</ymax>
+    </bndbox>
+</object>
+    <object>
+    <name>fish</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+        <xmin>25</xmin>
+        <ymin>228</ymin>
+        <xmax>69</xmax>
+        <ymax>283</ymax>
+    </bndbox>
+</object>
+</annotation>
