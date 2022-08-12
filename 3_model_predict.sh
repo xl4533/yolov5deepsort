@@ -1,1 +1,1 @@
-python track.py
+python track.py --source 'dataset/data_source/input.mp4'
