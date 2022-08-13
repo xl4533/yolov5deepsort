@@ -254,8 +254,8 @@ def detect(opt):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--yolo_model', nargs='+', type=str, default='fish_s.pt', help='model.pt path(s)')
-    parser.add_argument('--deep_sort_model', type=str, default='osnet_ibn_x1_0_MSMT17.t7')
-    parser.add_argument('--source', type=str, default='test04.mp4', help='source')  # file/folder, 0 for webcam
+    parser.add_argument('--deep_sort_model', type=str, default='ckpt1.t7')
+    parser.add_argument('--source', type=str, default='input.mp4', help='source')  # file/folder, 0 for webcam
     parser.add_argument('--output', type=str, default='inference/output', help='output folder')  # output folder
     parser.add_argument('--imgsz', '--img', '--img-size', nargs='+', type=int, default=[640], help='inference size h,w')
     parser.add_argument('--conf-thres', type=float, default=0.5, help='object confidence threshold')

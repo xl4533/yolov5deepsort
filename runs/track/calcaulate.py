@@ -14,7 +14,7 @@ def TimeStampToTime(timestamp):
     return time.strftime('%Y-%m-%d %H:%M:%S', timeStruct)
 
 def get_FileCreateTime(filePath):
-    # '''获取文件的创建时间'''
+    # 获取文件的创建时间
     # filePath = unicode(filePath,'utf8')
     t = os.path.getctime(filePath)
     return TimeStampToTime(t)
@@ -49,9 +49,20 @@ for i in range(len(data)):
         data_dict[data_line[0]] = []
         data_dict[data_line[0]].append(data_line)
 
+data_dict_2 = dict()
+
+for i in range(len(data)):
+    if(data[i]==''):
+        continue
+    data_line = data[i].split(' ')
+    try:
+        data_dict_2[data_line[1]].append(data_line)
+    except:
+        data_dict_2[data_line[1]] = []
+        data_dict_2[data_line[1]].append(data_line)
 
 import cv2
-seconds = 1
+seconds = 3
 count = 0
 count_top = 0
 count_middle = 0
@@ -149,7 +160,7 @@ for i in range(31*seconds,len(dict_keys)):
 #!/usr/bin/env python
 import cv2
 
-img = cv2.imread('../../dataset/data_process/video_image_det/frame1.jpg')
+img = cv2.imread('../../dataset/data_process/video_image_det/frame100.jpg')
 imginfo = img.shape
 size = (imginfo[1],imginfo[0])
 print(size)
@@ -160,7 +171,7 @@ for i in range(len(dict_keys)):
     filename = "../../dataset/data_process/video_image_det/frame"+str(i+1)+".jpg"
     img = cv2.imread(filename,1)
     videoWrite.write(img)
-    if(i%1000==0)
+    if(i%1000==0):
         print(i)
 
 videoWrite.release()
@@ -186,7 +197,7 @@ print('count_min_bottom',count_min_bottom)
 '''
 import xlwt
 import xlrd
-import xlutils
+from xlutils.copy import copy
 
 workbook = xlwt.Workbook(encoding='utf-8')
 # 创建一个worksheet
@@ -203,19 +214,19 @@ workbook.save("../../inference/output/out.xls")
 # 打开需要操作的excel表
 wb = xlrd.open_workbook("../../inference/output/out.xls")
 # 复制原有表
-newb = xlutils.copy.copy(wb)
+newb = copy(wb)
 
 # 获取原有excel表中sheet名为‘My Worksheet’的sheet
 sumsheet = newb.get_sheet('My Worksheet')
 # k表示该sheet的最后一行
-k = len(sumsheet.rows)
+k = len(sumsheet.rows) - 1
 # 想原有sheet后面新增数据
 # 参数对应 行, 列, 值
 for i in range(1,len(count_min_top)):
-    sumsheet.write(k, 0, label=i)
-    sumsheet.write(k, 1, label=count_min_top[i])
-    sumsheet.write(k, 2, label=count_min_middle[i])
-    sumsheet.write(k, 3, label=count_min_bottom[i])
+    sumsheet.write(k + i, 0, label=i)
+    sumsheet.write(k + i, 1, label=count_min_top[i])
+    sumsheet.write(k + i, 2, label=count_min_middle[i])
+    sumsheet.write(k + i, 3, label=count_min_bottom[i])
 # 保存
 newb.save("../../inference/output/out.xls")
 

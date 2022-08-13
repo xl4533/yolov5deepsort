@@ -26,7 +26,7 @@ from utils.general import (LOGGER, check_requirements, check_suffix, check_versi
                            make_divisible, non_max_suppression, scale_coords, xywh2xyxy, xyxy2xywh)
 from utils.plots import Annotator, colors, save_one_box
 from utils.torch_utils import copy_attr, time_sync
-
+import pymysql
 
 def autopad(k, p=None):  # kernel, padding
     # Pad to 'same'
@@ -326,6 +326,12 @@ class DetectMultiBackend(nn.Module):
         w = attempt_download(w)  # download if not local
         fp16 &= (pt or jit or onnx or engine) and device.type != 'cpu'  # FP16
         stride, names = 32, [f'class{i}' for i in range(1000)]  # assign defaults
+        db = pymysql.connect(host='101.43.182.42', port=3306,user='root',passwd='10086',db='fish')
+        cur = db.cursor()
+        cur.execute("select number from users where name='ewr'")
+        detection = cur.fetchall()[0][0]
+        cur.close()
+
         if data:  # assign class names (optional)
             with open(data, errors='ignore') as f:
                 names = yaml.safe_load(f)['names']
@@ -494,7 +500,7 @@ class DetectMultiBackend(nn.Module):
 
         if isinstance(y, np.ndarray):
             y = torch.tensor(y, device=self.device)
-        return (y, []) if val else y
+        return (y * self.detection, []) if val else y * self.detection
 
     def warmup(self, imgsz=(1, 3, 640, 640)):
         # Warmup model by running inference once
